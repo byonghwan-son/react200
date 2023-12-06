@@ -19,7 +19,7 @@ class R012_ClassPrototype extends Component {
             }
 
             return ExamCount;
-        }());
+        })();
 
         var cnt = new ExamCountFunc('200')
         cnt.showNum()
@@ -34,12 +34,12 @@ class R012_ClassPrototype extends Component {
             }
         }
 
-        var cnt2 = new ExamCountClass('2hundread')
+        var cnt2 = new ExamCountClass('2hundred')
         cnt2.showNum();
     }
 
     render() {
-        return <></>
+        return <h2>[THIS IS Class.]</h2>
     }
 }
 
