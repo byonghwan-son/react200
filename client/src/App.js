@@ -1,13 +1,14 @@
 import React from "react";
 import "./App.css";
-import Map from "./R015_Map";
+import PropsBoolean from "./R019_PropsBoolean";
 
 function App() {
   return (
     <div>
       <h1>Start React 200!</h1>
       <p>CSS 적용하기</p>
-      <Map />
+      <PropsBoolean BooleanTrueFalse={false} />
+      <PropsBoolean BooleanTrueFalse />
     </div>
   );
 }
