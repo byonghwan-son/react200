@@ -1,6 +1,6 @@
 import React from "react";
 import "./App.css";
-import PropsNode from "./R023_PropsNode";
+import ForceUpdate from "./chap02/R026_ForceUpdate";
 
 
 function App() {
@@ -8,9 +8,7 @@ function App() {
     <div>
       <h1>Start React 200!</h1>
       <p>CSS 적용하기</p>
-        <PropsNode>
-            <span>node from App.js</span>
-        </PropsNode>
+        <ForceUpdate />
     </div>
   );
 }
