@@ -1,14 +1,14 @@
 import React from "react"
 // import "./App.css"
 import 'bootstrap/dist/css/bootstrap.css'
-import AxiosPost from "./chap02/R062_AxiosPost";
+import Promise from "./chap02/R065_Promise";
 
 function App() {
   return (
     <div>
       <h1>Start React 200!</h1>
       <p>CSS 적용하기</p>
-      <AxiosPost />
+      <Promise />
     </div>
   );
 }
