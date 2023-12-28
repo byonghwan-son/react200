@@ -5,7 +5,6 @@ import App from "./chap03/react-routers/App";
 import reportWebVitals from "./reportWebVitals";
 import {BrowserRouter} from "react-router-dom";
 
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const listener = () => root.render(
   <BrowserRouter>

@@ -8,6 +8,7 @@ const initState = {
 const data = (state = initState, action) => {
   switch (action.type) {
     case ADD:
+      console.log(`mapDispatchToProps : ${state.str}`)
       return {
         str: state.str + '200'
       }
