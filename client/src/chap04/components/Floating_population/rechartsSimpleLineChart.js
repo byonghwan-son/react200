@@ -1,7 +1,6 @@
 import React from 'react';
 import {CartesianGrid, Legend, Line, LineChart, Tooltip, XAxis, YAxis} from "recharts";
 
-
 function RechartsSimpleLineChart(props) {
   const data = [
     { 군구: '광진구', 유동인구수: 32760, 비유동인구수: 34000 },

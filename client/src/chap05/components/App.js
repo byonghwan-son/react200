@@ -11,6 +11,7 @@ import LoginForm from "./LoginForm";
 import FloatingPopulationList from "./Floating_population/floatingPopulationList";
 import RechartsSimpleLineChart from "./Floating_population/rechartsSimpleLineChart";
 import R111_ApiPostJson from "./Sample/R111_ApiPostJson";
+import SoftwareList from "./SoftwareToolsManage/SoftwareList";
 
 function App(props) {
   return (
@@ -21,6 +22,7 @@ function App(props) {
         <Route exact path={`/floatPopulationList`} element={<FloatingPopulationList />} />
         <Route exact path={`/rechartsSimpleLineChart`} element={<RechartsSimpleLineChart />} />
         <Route exact path={`/reactProxy`} element={<R111_ApiPostJson />} />
+        <Route exact path={`/SoftwareList`} element={<SoftwareList />} />
       </Routes>
       <Footer />
     </div>

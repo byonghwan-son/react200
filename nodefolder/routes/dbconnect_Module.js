@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
   port: '3306',
   database: 'react',
   user: 'root',
-  password: 'wnallove',
+  password: 'gk',
 })
 
 router.post('/', (req, res) => {
@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
     }
     var time2 = new Date();
     console.log(`## ${time2} ##`)
-    console.log(`## RESULT DATA LIST ## : \n ${results}`)
+    console.log('## RESULT DATA LIST ## : \n', results)
     var string = JSON.stringify(results)
     var json = JSON.parse(string);
     res.send({ json });
