@@ -1,7 +1,8 @@
-import React from 'react';
-import {Route, Routes} from "react-router-dom";
+import React from "react";
+import { Route, Routes } from "react-router-dom";
+
 // css
-import '../css/new.css'
+import "../css/new.css";
 // header
 import HeaderAdmin from "./Header/Header admin";
 // footer
@@ -17,8 +18,11 @@ function App(props) {
       <HeaderAdmin />
       <Routes>
         <Route exact path={`/`} element={<LoginForm />} />
-        <Route exact path={`/floatPopulationList`} element={<FloatingPopulationList />} />
-        <Route exact path={`/rechartsSimpleLineChart`} element={<RechartsSimpleLineChart />} />
+        <Route
+          exact
+          path={`/floatPopulationList`}
+          element={<FloatingPopulationList />}
+        />
       </Routes>
       <Footer />
     </div>
@@ -26,4 +30,3 @@ function App(props) {
 }
 
 export default App;
-

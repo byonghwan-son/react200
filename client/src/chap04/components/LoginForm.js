@@ -1,36 +1,62 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 function LoginForm(props) {
-  const handleSubmit = () => {}
-  const handleChange = () => {}
-  const pwdResetClick = () => {}
-  const submitClick = () => {}
+  const handleSubmit = () => {};
+  const handleChange = () => {};
+  const pwdResetClick = () => {};
+  const submitClick = () => {};
   return (
     <section className="main">
       <div className="m_login">
-        <h3><span><img src={`${require("../img/main/log_img.png")}`} alt=""/></span>LOGIN</h3>
+        <h3>
+          <span>
+            <img src={`${require("../img/main/log_img.png")}`} alt="" />
+          </span>
+          LOGIN
+        </h3>
         <div className="log_box">
           <form onSubmit={handleSubmit}>
             <div className="in_ty1">
-              <span><img src={`${require("../img/main/m_log_i3.png")}`} alt=""/></span>
-              <input type="text" id="email_val" name="email" placeholder="이메일" onChange={handleChange}/>
+              <span>
+                <img src={`${require("../img/main/m_log_i3.png")}`} alt="" />
+              </span>
+              <input
+                type="text"
+                id="email_val"
+                name="email"
+                placeholder="이메일"
+                onChange={handleChange}
+              />
             </div>
             <div className="in_ty1">
-              <span className="ic_2"><img src={`${require("../img/main/m_log_i2.png")}`} alt=""/></span>
-              <input type="password" id="pwd_val" name="password" placeholder="비밀번호" onChange={handleChange}/>
+              <span className="ic_2">
+                <img src={`${require("../img/main/m_log_i2.png")}`} alt="" />
+              </span>
+              <input
+                type="password"
+                id="pwd_val"
+                name="password"
+                placeholder="비밀번호"
+                onChange={handleChange}
+              />
             </div>
             <ul className="af">
-              <li><Link to={'/register_check'}>회원가입</Link></li>
-              <li className="pwr_b" onClick={pwdResetClick}><a href="#n">비밀번호 재설정</a></li>
+              <li>
+                <Link to={"/register_check"}>회원가입</Link>
+              </li>
+              <li className="pwr_b" onClick={pwdResetClick}>
+                <a href="#n">비밀번호 재설정</a>
+              </li>
             </ul>
-            <button className="s_bt" type="submit" onClick={submitClick}>로그인</button>
+            <button className="s_bt" type="submit" onClick={submitClick}>
+              로그인
+            </button>
           </form>
         </div>
       </div>
     </section>
   );
-
 }
 
 export default LoginForm;
