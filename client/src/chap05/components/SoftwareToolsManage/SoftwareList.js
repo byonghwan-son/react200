@@ -1,61 +1,71 @@
-import React, {useEffect, useState} from 'react';
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 function SoftwareList(props) {
-  const [responseSwtoolList, setResponseSwtoolList] = useState('') // 태생이 비동기입니다.
-  const [append_SwtoolList, setAppend_SwtoolList] = useState('') // 태생이 비동기입니다.
+  const [responseSwtoolList, setResponseSwtoolList] = useState(""); // 태생이 비동기입니다.
+  const [append_SwtoolList, setAppend_SwtoolList] = useState(""); // 태생이 비동기입니다.
   const callSwToolListApi = async () => {
-    axios.post('/api/Swtool?type=list', () => {
-    })
-      .then(res => {
+    axios
+      .post("/api/Swtool?type=list", () => {})
+      .then((res) => {
         try {
-          if(responseSwtoolList === '') {
-            setResponseSwtoolList(res)
+          if (responseSwtoolList === "") {
+            // 초기값일 때만 값을 할당 이후에는 값을 할당하지 않도록 함.
+            // 계속 값을 할당하면 responseSwtoolList 변수가 변경되므로
+            // 아래의 useEffect 메소드를 반복해서 실행하게 된다.
+            // 즉, ComponentDidUpdate 와 같은 기능을 하게 된다.
+            setResponseSwtoolList(res);
           }
-          setAppend_SwtoolList(SwToolListAppend())
+          setAppend_SwtoolList(SwToolListAppend());
         } catch (error) {
-          alert('작업 중 에러가 발생했습니다.')
+          alert("작업 중 에러가 발생했습니다.");
         }
       })
-      .catch(error => {
-        alert('작업 중 에러가 발생했습니다.')
-        return false
-      })
-  }
+      .catch((error) => {
+        alert("작업 중 에러가 발생했습니다.");
+        return false;
+      });
+  };
 
   const SwToolListAppend = () => {
-    let result = []
-    if(responseSwtoolList === '') return;
+    let result = [];
+    if (responseSwtoolList === "") return; // 값이 있을 때만 리스트 만들기
     var SwToolList = responseSwtoolList.data;
 
     for (let i = 0; i < SwToolList.json.length; i++) {
-      let data = SwToolList.json[i]
+      let data = SwToolList.json[i];
 
       let date = data.reg_date;
-      let year = date.substring(0, 4)
-      let month = date.substring(4, 2)
-      let day = date.substring(6, 2)
-      let reg_date = year + '.' + month + '.' + day
+      let year = date.substring(0, 4);
+      let month = date.substring(4, 2);
+      let day = date.substring(6, 2);
+      let reg_date = year + "." + month + "." + day;
 
       result.push(
-        <tr className={`hidden_type`}>
+        <tr className={`hidden_type`} key={i}>
           <td>{data.swt_toolname}</td>
           <td>{data.swt_function}</td>
           <td>{reg_date}</td>
           <td>
-            <Link to={`/AdminSoftwareView/${data.swt_code}`}
-                  className={`bt_c1 bt_c2 w50_b`}>수정</Link>
-            <a href={`#n`} className={`bt_c1 w50_b`}>삭제</a>
+            <Link
+              to={`/AdminSoftwareView/${data.swt_code}`}
+              className={`bt_c1 bt_c2 w50_b`}
+            >
+              수정
+            </Link>
+            <a href={`#n`} className={`bt_c1 w50_b`}>
+              삭제
+            </a>
           </td>
         </tr>
-      )
+      );
     }
     return result;
-  }
+  };
 
   useEffect(() => {
-    callSwToolListApi()
+    callSwToolListApi();
   }, [responseSwtoolList]);
 
   return (
@@ -64,25 +74,25 @@ function SoftwareList(props) {
         <div className="li_top">
           <h2 className="s_tit1">Software Tools 목록</h2>
           <div className="li_top_sch af">
-            <Link to={'/AdminSoftwareView/register'} className="sch_bt2 wi_au">Tool 등록</Link>
+            <Link to={"/AdminSoftwareView/register"} className="sch_bt2 wi_au">
+              Tool 등록
+            </Link>
           </div>
         </div>
 
         <div className="list_cont list_cont_admin">
           <table className="table_ty1 ad_tlist">
             <thead>
-            <tr>
-              <th>툴 이름</th>
-              <th>기능</th>
-              <th>등록일</th>
-              <th>기능</th>
-            </tr>
+              <tr>
+                <th>툴 이름</th>
+                <th>기능</th>
+                <th>등록일</th>
+                <th>기능</th>
+              </tr>
             </thead>
           </table>
           <table className="table_ty2 ad_tlist">
-            <tbody>
-            {append_SwtoolList}
-            </tbody>
+            <tbody>{append_SwtoolList}</tbody>
           </table>
         </div>
       </article>

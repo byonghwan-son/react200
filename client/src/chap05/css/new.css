@@ -129,6 +129,14 @@ p {
   display: block;
 }
 
+.red_f {
+  color: red;
+}
+
+.border_validate_err {
+  outline: red auto 1px;
+}
+
 .blind {
   position: absolute;
   left: -9999px;
